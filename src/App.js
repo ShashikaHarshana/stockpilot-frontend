@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Home from './pages/Home'
+import { CssBaseline } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Profile from './pages/Profile'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import Graph from './pages/Graph'
+import ErrorPage from './pages/ErrorPage'
+import theme from './utils/theme'
+import NavBar from './components/NavBar'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <NavBar />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/profile' component={Profile} />
+
+          <Route path='/sign_in' component={SignIn} />
+
+          <Route path='/Sign_up' component={SignUp} />
+
+          <Route path='/graph' component={Graph} />
+
+          <Route path='*' component={ErrorPage} />
+        </Switch>
+      </ThemeProvider>
+    </Router>
+  )
 }
 
-export default App;
+export default App
