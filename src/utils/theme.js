@@ -14,7 +14,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'capitalize',
-          fontSize: '1rem'
+          fontSize: '1rem',
+          borderRadius: '10px'
         }
       },
       defaultProps: {

@@ -68,7 +68,10 @@ const NavBar = () => {
               to='/sign_up'
               variant='contained'
               color='secondary'
-              sx={{ borderRadius: '30px', p: '5px 25px' }}
+              sx={{
+                borderRadius: '40px',
+                p: '5px 25px'
+              }}
             >
               Sign Up
             </Button>

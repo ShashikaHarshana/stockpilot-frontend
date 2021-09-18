@@ -34,7 +34,7 @@ const ImageCard = ({ title, subTitle, imgNo, btn }) => {
         <Typography
           sx={{ marginLeft: '2rem' }}
           gutterBottom
-          variant='h3'
+          variant='h4'
           component='div'
         >
           {title}

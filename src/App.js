@@ -21,15 +21,25 @@ function App () {
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route path='/profile' component={Profile} />
+          <Route exact path='/profile'>
+            <Profile />
+          </Route>
 
-          <Route path='/sign_in' component={SignIn} />
+          <Route exact path='/sign_in'>
+            <SignIn />
+          </Route>
 
-          <Route path='/Sign_up' component={SignUp} />
+          <Route exact path='/Sign_up'>
+            <SignUp />
+          </Route>
 
-          <Route path='/graph' component={Graph} />
+          <Route exact path='/graph'>
+            <Graph />
+          </Route>
 
-          <Route path='*' component={ErrorPage} />
+          <Route exact path='*'>
+            <ErrorPage />
+          </Route>
         </Switch>
       </ThemeProvider>
     </Router>

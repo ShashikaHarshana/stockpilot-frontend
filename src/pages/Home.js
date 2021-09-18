@@ -10,6 +10,7 @@ import botmLeft from '../svgs/home/botmLeft.svg'
 import elipse from '../svgs/home/elipse.svg'
 
 import { useTheme } from '@emotion/react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const theme = useTheme()
@@ -87,6 +88,8 @@ const Home = () => {
               without any commission or deposits.
             </Typography>
             <Button
+              component={Link}
+              to='/sign_up'
               sx={{
                 width: '25%',
                 marginTop: '2.5rem',
@@ -94,6 +97,7 @@ const Home = () => {
                 borderRadius: '30px'
               }}
               variant='contained'
+              m
               color='secondary'
             >
               get started
@@ -166,7 +170,7 @@ const Home = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h4'>
+            <Typography variant='h3'>
               Manage your own{' '}
               <span style={{ color: theme.palette.secondary.main }}>
                 Watchlist
@@ -240,6 +244,8 @@ const Home = () => {
               without any commission or deposits.
             </Typography>
             <Button
+              component={Link}
+              to='/sign_up'
               sx={{
                 width: '25%',
                 marginTop: '2.5rem',
