@@ -19,7 +19,7 @@ const initialValues = {
   email: '',
   password: ''
 }
-const url = '#'
+const url = 'http://localhost:5000/user/register'
 
 const SignUp = () => {
   const [user, setUser] = useState(initialValues)

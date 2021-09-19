@@ -38,7 +38,7 @@ const NavBar = () => {
               sx={{ marginLeft: '20px' }}
             />
             <Tab
-              label='Cripto'
+              label='Crypto'
               component={Link}
               to='/graph'
               sx={{ marginLeft: '20px' }}
