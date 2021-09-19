@@ -1,10 +1,10 @@
 import React from 'react'
-import Chart from '../components/Charts'
+import Chart from '../components/Chart'
 
 const Graph = () => {
   return (
     <div>
-      <Charts />
+      <Chart />
     </div>
   )
 }

@@ -40,7 +40,7 @@ const NavBar = () => {
             <Tab
               label='Cripto'
               component={Link}
-              to='/'
+              to='/graph'
               sx={{ marginLeft: '20px' }}
             />
           </Tabs>

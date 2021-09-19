@@ -8,15 +8,38 @@ import Controls from '../components/controls/Controls'
 import GoogleIcon from '@mui/icons-material/Google'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
+import Form from '../components/Form'
+import Axios from 'axios'
 
 const initialValues = {
-  name: '',
-  email: ''
+  id: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: ''
 }
+const url = '#'
 
 const SignUp = () => {
   const [user, setUser] = useState(initialValues)
   const theme = useTheme()
+
+  const handleChange = e => {
+    const { name, value } = e.target
+    setUser({ ...user, [name]: value })
+  }
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log('submitted')
+    Axios.post(url, {
+      user: user
+    }).then(resp => {
+      console.log(resp.data)
+    })
+    setUser(initialValues)
+  }
+
   return (
     <div>
       <Grid container sx={{ width: '70%', margin: '6rem auto' }}>
@@ -96,29 +119,62 @@ const SignUp = () => {
                 </IconButton>
               </Grid>
             </Grid>
-            <Grid sx={{ marginTop: '1rem' }}>
-              <Controls.Input fullWidth label='Email' name='email' />
-            </Grid>
-            <Grid sx={{ marginTop: '1rem' }}>
-              <Controls.Input
+
+            <form onSubmit={handleSubmit}>
+              <Grid sx={{ marginTop: '1rem' }}>
+                <Controls.Input
+                  fullWidth
+                  label='First Name'
+                  name='firstName'
+                  value={user.firstName}
+                  onChange={handleChange}
+                />
+              </Grid>
+
+              <Grid sx={{ marginTop: '1rem' }}>
+                <Controls.Input
+                  fullWidth
+                  label='Last Name'
+                  name='lastName'
+                  value={user.lastName}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid sx={{ marginTop: '1rem' }}>
+                <Controls.Input
+                  fullWidth
+                  label='Email'
+                  name='email'
+                  value={user.email}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid sx={{ marginTop: '1rem' }}>
+                <Controls.Input
+                  fullWidth
+                  label='Password'
+                  name='password'
+                  type='password'
+                  value={user.password}
+                  onChange={handleChange}
+                />
+              </Grid>
+
+              <Controls.Button
+                color='secondary'
+                text='sign up'
+                type='submit'
                 fullWidth
-                label='Password'
-                name='password'
-                type='password'
               />
-            </Grid>
-            <Grid sx={{ marginTop: '1rem' }}>
-              <Controls.Input
-                fullWidth
-                label='Confirm Password'
-                name='password'
-                type='password'
-              />
-            </Grid>
-            <Controls.Button color='secondary' text='sign up' fullWidth />
+            </form>
             <Typography>
               Already have an account?{' '}
-              <Button variant='text' sx={{ color: theme.palette.primary.main }}>
+              <Button
+                component={Link}
+                to='/sign_in'
+                variant='text'
+                sx={{ color: theme.palette.primary.main }}
+              >
                 Log in
               </Button>
             </Typography>

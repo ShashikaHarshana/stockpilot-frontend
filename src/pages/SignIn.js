@@ -8,6 +8,7 @@ import Controls from '../components/controls/Controls'
 import GoogleIcon from '@mui/icons-material/Google'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const SignIn = () => {
   const theme = useTheme()
@@ -105,7 +106,12 @@ const SignIn = () => {
 
             <Typography>
               Don't have an account?{' '}
-              <Button variant='text' sx={{ color: theme.palette.primary.main }}>
+              <Button
+                component={Link}
+                to='/sign_up'
+                variant='text'
+                sx={{ color: theme.palette.primary.main }}
+              >
                 Sign Up
               </Button>
             </Typography>
