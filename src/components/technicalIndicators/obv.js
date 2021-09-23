@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { createChart, CrosshairMode } from 'lightweight-charts'
 import {Typography} from "@mui/material";
 
-function RSIChart () {
+function OBVChart () {
     const ref = React.useRef()
 
     useEffect(() => {
@@ -41,7 +41,7 @@ function RSIChart () {
             }
         })
 
-        fetch('http://127.0.0.1:5000/ta/rsi')
+        fetch('http://127.0.0.1:5000/ta/obv')
             .then(res => res.json())
             .then(data => {
                 let tempLines = []
@@ -70,11 +70,11 @@ function RSIChart () {
             <Typography
                 variant='h6'
             >
-                RSI
+                OBV
             </Typography>
             <div ref={ref} />
         </>
     )
 }
 
-export default RSIChart
+export default OBVChart

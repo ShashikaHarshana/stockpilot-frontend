@@ -1,6 +1,7 @@
 import React from 'react'
 import Chart from '../components/Chart'
 import RSIChart from "../components/technicalIndicators/rsi";
+import OBVChart from "../components/technicalIndicators/obv";
 
 const Graph = () => {
   return (
@@ -10,6 +11,7 @@ const Graph = () => {
       }}>
       <Chart />
           <RSIChart />
+          <OBVChart />
     </div>
   )
 }
