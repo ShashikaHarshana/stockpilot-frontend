@@ -61,7 +61,6 @@ function Chart () {
     fetch('http://127.0.0.1:5000/binance/api/historical/BNBUSDT')
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         let tempCandlesticks = []
         data.forEach(row => {
           let object = {
