@@ -2,8 +2,11 @@ import React, { useEffect } from 'react'
 import { createChart, CrosshairMode } from 'lightweight-charts'
 import {Typography} from "@mui/material";
 
-function OBVChart () {
+function LineChart ({type}) {
     const ref = React.useRef()
+
+    const url = 'http://127.0.0.1:5000/ta/' + type;
+    console.log(url);
 
     useEffect(() => {
         const chart = createChart(ref.current, {
@@ -41,7 +44,7 @@ function OBVChart () {
             }
         })
 
-        fetch('http://127.0.0.1:5000/ta/obv')
+        fetch(url)
             .then(res => res.json())
             .then(data => {
                 let tempLines = []
@@ -70,11 +73,11 @@ function OBVChart () {
             <Typography
                 variant='h6'
             >
-                OBV
+                {type.toUpperCase()}
             </Typography>
             <div ref={ref} />
         </>
     )
 }
 
-export default OBVChart
+export default LineChart
