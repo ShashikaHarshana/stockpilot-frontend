@@ -9,9 +9,9 @@ const Graph = () => {
             transform: 'translate(-50%, -50%)'
         }}>
             <Chart/>
-            <LineChart type={'rsi'}/>
-            <LineChart type={'obv'}/>
-            <LineChart type={'roc'}/>
+            {/*<LineChart type={'rsi'}/>*/}
+            {/*<LineChart type={'obv'}/>*/}
+            {/*<LineChart type={'roc'}/>*/}
         </div>
     )
 }
